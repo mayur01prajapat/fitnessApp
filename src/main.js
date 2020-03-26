@@ -1,8 +1,25 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
+import VueRouter from 'vue-router';
+import Login from './components/Login.vue';
+import Profile from './components/Profile.vue';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+Vue.use(VueRouter);
+
+const routes = [
+  { path: '/', component: Login },
+  { path: '/login', component: Login },
+  { path: '/profile', component: Profile },
+];
+
+const router = new VueRouter({
+  routes,
+  mode:'history'
+});
 
 new Vue({
+  router,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');
