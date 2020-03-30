@@ -3,6 +3,7 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import Login from './components/Login.vue';
 import Profile from './components/Profile.vue';
+import ExerciseLog from './components/ExerciseLog.vue';
 
 Vue.config.productionTip = false;
 
@@ -12,11 +13,12 @@ const routes = [
   { path: '/', component: Login },
   { path: '/login', component: Login },
   { path: '/profile', component: Profile },
+  { path: '/exercise-log', component: ExerciseLog },
 ];
 
 const router = new VueRouter({
   routes,
-  mode:'history'
+  mode: 'history'
 });
 
 new Vue({
