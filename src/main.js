@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import Login from './components/Login.vue';
 import Profile from './components/Profile.vue';
 import ExerciseLog from './components/ExerciseLog.vue';
+import About from './components/About.vue';
 
 Vue.config.productionTip = false;
 
@@ -14,6 +15,7 @@ const routes = [
   { path: '/login', component: Login },
   { path: '/profile', component: Profile },
   { path: '/exercise-log', component: ExerciseLog },
+  { path: '/about', component: About },
 ];
 
 const router = new VueRouter({
