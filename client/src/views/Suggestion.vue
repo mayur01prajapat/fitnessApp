@@ -50,7 +50,8 @@
 
 <script>
 import { Slider, SliderItem } from "vue-easy-slider";
-import Header from "./Header.vue";
+import Header from "../components/Header.vue";
+
 
 export default {
   name: "Suggestion",
