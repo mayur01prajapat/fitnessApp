@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "9401345d-62ef-4b3c-a25b-34ed5d9242ce",
+		"name": "EverPresent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"test1@mailinator.com\",\n\t\"password\":\"test123\",\n\t\"name\":\"test1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3005/v1/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"test1@mailinator.com\",\n\t\"password\":\"test123\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/v1/user/login",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMjI4MTc5LCJleHAiOjE1ODMzMTQ1Nzl9.5WJzkA50O2yefpuuvjt5_AXSdtr1W53xkcSyuZ8Sp9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/v1/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMjI4MTc5LCJleHAiOjE1ODMzMTQ1Nzl9.5WJzkA50O2yefpuuvjt5_AXSdtr1W53xkcSyuZ8Sp9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMjI4MTc5LCJleHAiOjE1ODMzMTQ1Nzl9.5WJzkA50O2yefpuuvjt5_AXSdtr1W53xkcSyuZ8Sp9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"test2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refreshtoken",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMjI4MTc5LCJleHAiOjE1ODMzMTQ1Nzl9.5WJzkA50O2yefpuuvjt5_AXSdtr1W53xkcSyuZ8Sp9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"test2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/v1/users/refresh/5e5e2c01cc483154ebe7343f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"users",
+								"refresh",
+								"5e5e2c01cc483154ebe7343f"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Space",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/v1/space/create",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"space",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/v1/space/all",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"space",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMjI1MzQ4LCJleHAiOjE1ODMzMTE3NDh9.LzBoL6B6jtKLQ2uyRSJoNkrMth7NTPLb8HWWvYzdWGo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"space\":\"5e5e1c74cc483154ebe7343a\",\n\t\"user\":\"5e5e09d71888010ccc087087\",\n\t\"role\":\"MOTHER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/v1/space/setRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"space",
+								"setRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "memory/save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:3005/v1/space/memory/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"space",
+								"memory",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"space\":\"5e5fbac765139730c3e2c751\",\n\t\"roleName\": \"Mother\",\n    \"phone\": \"000000\",\n\t\"permission\": \"moderator\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/v1/space/invite",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"v1",
+								"space",
+								"invite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "processInvitation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"verified\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/v1/space/processInvitation/a38f3ab067e7cd01fe0b52353751c35b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"space",
+								"processInvitation",
+								"a38f3ab067e7cd01fe0b52353751c35b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifyInvitation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"space\":\"5e5fbac765139730c3e2c751\",\n\t\"user\": \"5e5e09d71888010ccc087087\",\n\t\"approved\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/v1/space/verifyInvitation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"v1",
+								"space",
+								"verifyInvitation"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
