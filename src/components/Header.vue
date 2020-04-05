@@ -30,7 +30,7 @@
             <router-link class="nav-link" to="/exercise">Exercise</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/apps">Suggestion</router-link>
+            <router-link class="nav-link" to="/suggestion">Suggestion</router-link>
           </li>
         </ul>
       </div>

@@ -6,10 +6,14 @@ import Profile from './components/Profile.vue';
 import ExerciseLog from './components/ExerciseLog.vue';
 import About from './components/About.vue';
 import Home from './components/Home.vue';
+import Suggestion from './components/Suggestion.vue';
+import EasySlider from 'vue-easy-slider'
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
+
+Vue.use(EasySlider)
 
 const routes = [
   { path: '/', component: Login },
@@ -18,6 +22,7 @@ const routes = [
   { path: '/exercise-log', component: ExerciseLog },
   { path: '/about', component: About },
   { path: '/home', component: Home },
+  { path: '/suggestion', component: Suggestion },
 ];
 
 const router = new VueRouter({
