@@ -1,5 +1,6 @@
 <template>
   <div class="fullPage">
+      <Header />
     <Slider
       style="height:100%"
       animation="fade"
@@ -8,7 +9,7 @@
       :speed="1000"
     >
       <SliderItem v-for="(i, index) in list" :key="index" @click="changeIndex(1);" :style="i">
-        <div class="text-center mt-5">
+        <div class="text-center mt-2">
           <h1>Recipes & Inspiration</h1>
           <p class="text-center">
             Get nutritionist-approved recipes and motivational workout tips from
@@ -49,12 +50,14 @@
 
 <script>
 import { Slider, SliderItem } from "vue-easy-slider";
+import Header from "./Header.vue";
 
 export default {
   name: "Suggestion",
   components: {
     Slider,
-    SliderItem
+    SliderItem,
+    Header
   },
   data() {
     return {
@@ -65,6 +68,7 @@ export default {
   methods: {
     changeIndex(index) {
       this.sliderValue = index;
+      console.log(index);
     }
   },
   mounted() {
