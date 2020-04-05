@@ -1,13 +1,13 @@
 <template>
   <div class="headerContainer">
     <div class="row">
-        <div class="ml-5">
-            <h1>UziFit</h1>
-        </div>
-        <div class="ml-auto mr-5 row">
-            <div class="mr-3 mt-3" style="color:#007bff">Log in</div>
-            <div class="mr-3 mt-3"  style="color:#007bff">Sign up</div>
-        </div>
+      <div class="ml-5">
+        <h1>UziFit</h1>
+      </div>
+      <div class="ml-auto mr-5 row">
+        <div class="mr-3 mt-3" style="color:#007bff">Log in</div>
+        <div class="mr-3 mt-3" style="color:#007bff">Sign up</div>
+      </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <button
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-.headerContainer{
-    overflow-x: hidden;
+.headerContainer {
+  overflow-x: hidden;
 }
 </style>
