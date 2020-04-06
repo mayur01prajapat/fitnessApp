@@ -50,7 +50,7 @@
 
 <script>
 import { Slider, SliderItem } from "vue-easy-slider";
-import Header from "../components/Header.vue";
+import Header from "./Header.vue";
 
 
 export default {
@@ -112,5 +112,10 @@ export default {
 .customCard {
     width: 18rem; 
     margin:0 auto;
+}
+
+.customCard img {
+  height: 200px;
+  width: auto;
 }
 </style>

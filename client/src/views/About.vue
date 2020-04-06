@@ -8,7 +8,8 @@
           <div class="col-md-6 offset-3 mt-5">
             <h1 class="heading">Fitness starts with what you eat.</h1>
             <p>Take control of your goal.Track calories breakdown ingredients.and log activity with myfitnesspal</p>
-            <botton class="btn btn-primary btn-block">START FOR FREE</botton>
+            <!-- <botton type="button" class="btn btn-primary btn-block">START FOR FREE</botton> -->
+            <button type="button" class="btn btn-primary btn-block">START FOR FREE</button>
             <p>
               Already have an account?
               <router-link class="btn btn-link" to="/Login">Login</router-link>
@@ -24,7 +25,7 @@
 </template>
 
 <script>
-import Header from "../components/Header.vue";
+import Header from "./Header.vue";
 
 // import axios from "axios";
 
@@ -59,9 +60,9 @@ export default {
 .heading {
   font-weight: bold;
 }
-.section {
-  /* background: #f7f7f7; */
-}
+/* .section {
+  background: #f7f7f7;
+} */
 .coverImage {
   /*  background: green; */
   /*  height: 100vh;
