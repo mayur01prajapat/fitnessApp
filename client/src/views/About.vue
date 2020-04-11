@@ -1,14 +1,12 @@
 <template>
   <div class="page">
     <Header />
-    <!-- <div class="container"></div> -->
     <div class="col-md-12 section">
       <div class="row">
         <div class="col-md-6 mx-auto">
           <div class="col-md-6 offset-3 mt-5">
             <h1 class="heading">Fitness starts with what you eat.</h1>
             <p>Take control of your goal.Track calories breakdown ingredients.and log activity with myfitnesspal</p>
-            <!-- <botton type="button" class="btn btn-primary btn-block">START FOR FREE</botton> -->
             <button type="button" class="btn btn-primary btn-block">START FOR FREE</button>
             <p>
               Already have an account?
@@ -64,6 +62,9 @@ export default {
   background: #f7f7f7;
 } */
 .coverImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   /*  background: green; */
   /*  height: 100vh;
   background-image: url("../assets/images/yoga.png");
@@ -73,8 +74,5 @@ export default {
   background-position: 50% 50%;
   width: 100%;
   background-size: 100% 100%; */
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
 }
 </style>

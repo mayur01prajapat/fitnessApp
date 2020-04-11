@@ -1,151 +1,140 @@
 <template>
-<div class="container">
-    <div class="row">
-        <div class="col-md-5 mx-auto">
-            <div id="first">
-                <div class="col-md-12 text-center">
-                    <h1>Fitness App</h1>
-                </div>
-                <div class="myform form ">
-                    <div class="logo mb-3">
-                        <div class="col-md-12 text-center">
-                            <h2>Login</h2>
-                        </div>
-                    </div>
-                    <form action="" method="post" name="login">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
-                        </div>
-                        <div class="form-group">
-                            <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
-                        </div>
-                        <div class="col-md-12 text-center ">
-                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
-                        </div>
-                        <div class="col-md-12 ">
-                            <div class="login-or">
-                                <hr class="hr-or">
-                                <span class="span-or">or</span>
-                            </div>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <p class="text-center">
-                                <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus">
-                                    </i> Signup using Google
-                                </a>
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <p class="text-center">Don't have account? <a href="#" id="signup">Sign up here</a></p>
-                        </div>
-                    </form>
+  <div
+    class="col-sm-12 col-md-12 col-lg-12"
+    style="background-color:red;height:100vh;overflow:hidden"
+  >
+    hello
+    <div align="center">
+      <!-- style="position: relative;
+    overflow: hidden;
+      padding-top: 56.25%;"-->
 
-                </div>
-            </div>
+      <social-sharing url="https://vuejs.org/" inline-template>
+        <div>
+          <network network="facebook">
+            <i class="fa fa-fw fa-facebook"></i> Facebook
+          </network>
         </div>
-    </div>
+      </social-sharing>
 
-</div>
+      <!--   <div>
+    hellow
+        <iframe
+          id="box1913"
+          style="position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          frameborder="0"
+          width="530"
+          height="230"
+        ></iframe>
+      </div>-->
+    </div>
+  </div>
+  <!-- <div class="col-sm-12 col-lg-12 p-1 text-dark h-100">
+    
+  </div>-->
 </template>
 
 <script>
 export default {
-    name: 'HelloWorld',
-    props: {
-        msg: String
-    }
-}
+  name: "HelloWorld",
+  props: {
+    msg: String
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
 body {
-    padding-top: 4.2rem;
-    padding-bottom: 4.2rem;
-    background: rgba(0, 0, 0, 0.76);
+  padding-top: 4.2rem;
+  padding-bottom: 4.2rem;
+  background: rgba(0, 0, 0, 0.76);
 }
 
 a {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
 }
 
 .myform {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 1rem;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
-    pointer-events: auto;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, .2);
-    border-radius: 1.1rem;
-    outline: 0;
-    max-width: 500px;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1.1rem;
+  outline: 0;
+  max-width: 500px;
 }
 
 .tx-tfm {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .mybtn {
-    border-radius: 50px;
+  border-radius: 50px;
 }
 
 .login-or {
-    position: relative;
-    color: #aaa;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  position: relative;
+  color: #aaa;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .span-or {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: -2px;
-    margin-left: -25px;
-    background-color: #fff;
-    width: 50px;
-    text-align: center;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  margin-left: -25px;
+  background-color: #fff;
+  width: 50px;
+  text-align: center;
 }
 
 .hr-or {
-    height: 1px;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
+  height: 1px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .google {
-    color: #666;
-    width: 100%;
-    height: 40px;
-    text-align: center;
-    outline: none;
-    border: 1px solid lightgrey;
+  color: #666;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  outline: none;
+  border: 1px solid lightgrey;
 }
 
 form .error {
-    color: #ff0000;
+  color: #ff0000;
 }
 
 #second {
-    display: none;
+  display: none;
 }
 </style>

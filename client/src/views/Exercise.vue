@@ -32,7 +32,7 @@
               <option>5</option>
             </select>
           </div>
-          <div class="card mt-2 w-100">
+          <div class="card w-100">
             <div class="card-body">
               <h5 class="card-title text-center">How Many Calories Did I Burn</h5>
               <form>
@@ -88,7 +88,7 @@ export default {
   width: 80%;
 }
 
-.card .mt-2 .w-100 {
+.card.w-100 {
   margin-top: 2.5rem;
 }
 </style>

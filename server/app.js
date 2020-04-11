@@ -1,12 +1,12 @@
-const express 		= require('express');
-const logger 	    = require('morgan');
-const bodyParser 	= require('body-parser');
-const passport      = require('passport');
-const pe            = require('parse-error');
-const cors          = require('cors');
-const path          = require('path');
-const v1            = require('./routes/v1');
-const payment            = require('./routes/payment');
+const express = require('express');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const pe = require('parse-error');
+const cors = require('cors');
+const path = require('path');
+const v1 = require('./routes/v1');
+const payment = require('./routes/payment');
 
 // const swaggerUi =require('swagger-ui-express') ;
 // const swaggerDocument = require('./swagger.json')
@@ -15,7 +15,7 @@ const app = express();
 
 const CONFIG = require('./config/config');
 app.use(logger('dev'));
-app.use(bodyParser.json({limit: '10mb'}));
+app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 //Passport
@@ -34,31 +34,31 @@ app.use(express.static('doc'));
 app.use('/v1', v1);
 app.use('/', payment);
 
-app.use('/', function(req, res){
-	res.statusCode = 200;
-	res.json({status:"success", message:"Mongo API", data:{}})
+app.use('/', (req, res) => {
+  res.statusCode = 200;
+  res.json({ status: "success", message: "Mongo API", data: {} })
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.send({error: err.name || err.message || err, success: false});
+  res.send({ error: err.name || err.message || err, success: false });
 });
 
 module.exports = app;
 
 process.on('unhandledRejection', error => {
-    console.error('Uncaught Error', pe(error));
+  console.error('Uncaught Error', pe(error));
 });

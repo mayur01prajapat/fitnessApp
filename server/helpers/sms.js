@@ -1,5 +1,6 @@
-const {twilio} = require('../config/config');
-const client = require('twilio')(twilio.sid, twilio.token);
+const { twilio } = require('../config/config');
+// const client = require('twilio')(twilio.sid, twilio.token);
+const client = require('twilio')(twilio.token);
 
 module.exports = function sendMessage(to, body) {
     client.messages
@@ -8,8 +9,8 @@ module.exports = function sendMessage(to, body) {
             from: twilio.number,
             to
         })
-        .then((resp)=>console.log(resp)).catch((err)=>{
-            console.log('err : ',err)
+        .then((resp) => console.log(resp)).catch((err) => {
+            console.log('err : ', err)
         });
 };
 
