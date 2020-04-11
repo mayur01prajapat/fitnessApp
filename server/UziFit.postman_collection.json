@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "9401345d-62ef-4b3c-a25b-34ed5d9242ce",
-		"name": "EverPresent",
+		"_postman_id": "62722221-b697-4413-9a81-c5c7154268dd",
+		"name": "UziFit",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -23,12 +23,12 @@
 							"raw": "{\n\t\"email\":\"test1@mailinator.com\",\n\t\"password\":\"test123\",\n\t\"name\":\"test1\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3005/v1/user/register",
+							"raw": "http://localhost:{{port}}/v1/user/register",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3005",
+							"port": "{{port}}",
 							"path": [
 								"v1",
 								"user",
@@ -106,7 +106,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMjI4MTc5LCJleHAiOjE1ODMzMTQ1Nzl9.5WJzkA50O2yefpuuvjt5_AXSdtr1W53xkcSyuZ8Sp9E",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -114,12 +114,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3005/v1/user",
-							"protocol": "http",
+							"raw": "{{host}}:{{port}}/v1/user",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "3005",
+							"port": "{{port}}",
 							"path": [
 								"v1",
 								"user"
@@ -226,277 +225,49 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Space",
+			"name": "Posts",
 			"item": [
 				{
-					"name": "create",
+					"name": "Create Post",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/v1/space/create",
+							"raw": "{{host}}:{{port}}/v1/post/create",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
 								"v1",
-								"space",
+								"post",
 								"create"
 							]
 						}
 					},
 					"response": []
-				},
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Exercises",
+			"item": [
 				{
-					"name": "get",
+					"name": "Create Post",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/v1/space/all",
+							"raw": "{{host}}:{{port}}/v1/post/create",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
 								"v1",
-								"space",
-								"all"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get Copy",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMjI1MzQ4LCJleHAiOjE1ODMzMTE3NDh9.LzBoL6B6jtKLQ2uyRSJoNkrMth7NTPLb8HWWvYzdWGo",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"space\":\"5e5e1c74cc483154ebe7343a\",\n\t\"user\":\"5e5e09d71888010ccc087087\",\n\t\"role\":\"MOTHER\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3005/v1/space/setRole",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3005",
-							"path": [
-								"v1",
-								"space",
-								"setRole"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "memory/save",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "http://localhost:3005/v1/space/memory/save",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3005",
-							"path": [
-								"v1",
-								"space",
-								"memory",
-								"save"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "invite",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"space\":\"5e5fbac765139730c3e2c751\",\n\t\"roleName\": \"Mother\",\n    \"phone\": \"000000\",\n\t\"permission\": \"moderator\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}:{{port}}/v1/space/invite",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"v1",
-								"space",
-								"invite"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "processInvitation",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"verified\":true\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3005/v1/space/processInvitation/a38f3ab067e7cd01fe0b52353751c35b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3005",
-							"path": [
-								"v1",
-								"space",
-								"processInvitation",
-								"a38f3ab067e7cd01fe0b52353751c35b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "verifyInvitation",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU1ZTA5ZDcxODg4MDEwY2NjMDg3MDg3IiwiaWF0IjoxNTgzMzI5MzU5LCJleHAiOjE1ODM0MTU3NTl9._TJ3xXqAL0oudITPO5G1QkSfiotUxqvkhxEucO7EyXQ",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"space\":\"5e5fbac765139730c3e2c751\",\n\t\"user\": \"5e5e09d71888010ccc087087\",\n\t\"approved\":true\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3005/v1/space/verifyInvitation",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3005",
-							"path": [
-								"v1",
-								"space",
-								"verifyInvitation"
+								"post",
+								"create"
 							]
 						}
 					},
