@@ -7,16 +7,17 @@ const cors          = require('cors');
 const path          = require('path');
 const v1            = require('./routes/v1');
 
-// const swaggerUi =require('swagger-ui-express') ;
-// const swaggerDocument = require('./swagger.json')
+const swaggerUi =require('swagger-ui-express') ;
+const swaggerDocument = require('./swagger.json')
 
 const app = express();
 
 const CONFIG = require('./config/config');
 app.use(logger('dev'));
+app.use(express.static('public'))
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 //Passport
 app.use(passport.initialize());
 

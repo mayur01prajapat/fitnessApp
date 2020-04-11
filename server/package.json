@@ -27,7 +27,7 @@
     "ffprobe-static": "^3.0.0",
     "firebase-admin": "^7.0.0",
     "fluent-ffmpeg": "^2.1.2",
-    "formidable": "^1.2.1",
+    "formidable": "^1.2.2",
     "jade": "~1.11.0",
     "mongoose": "^5.4.14",
     "mongoose-validator": "^2.0.2",
