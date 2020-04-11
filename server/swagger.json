@@ -2,29 +2,29 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "EvrPrsnt"
+    "title": "UziFit Backend"
   },
-  "host": "evrprsnt.thedev.studio",
+  "host": "localhost:3000",
   "tags": [
     {
       "name": "user",
       "description": "Operations about user"
     },
     {
-      "name": "space",
-      "description": "Operations about space"
+      "name": "posts",
+      "description": "Operations about posts"
     },
     {
-      "name": "subscription",
-      "description": "Operations about subscription"
+      "name": "exercises",
+      "description": "Operations about exercises"
     },
     {
-      "name": "notifications",
-      "description": "Operations about notifications"
+      "name": "diet",
+      "description": "Operations about diet plans"
     }
   ],
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/user/login": {
