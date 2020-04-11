@@ -12,7 +12,10 @@ const { FACEBOOK } = LOGIN_TYPE
 
 let UserSchema = mongoose.Schema({
     name: String,
-    authId: { type: String},
+    age: Number,
+    height:Number,
+    weight: Number,
+    authId: { type: String },
     loginType: { type: String, enum: [FACEBOOK] },
     email: {
         type: String,

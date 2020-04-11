@@ -1,21 +1,24 @@
-const {User} = require('../models');
+const { User } = require('../models');
 const validator = require('validator');
-const {to, TE} = require('../services/util.service');
+const { to, TE } = require('../services/util.service');
 
 const createUser = async function (userInfo) {
-    const {email, password, name} = userInfo;
+    const { email, password, name, height, weight, age } = userInfo;
     if (!email) TE('Enter email for registration.');
 
     let err, user;
-    [err, user] = await to(User.findOne({email}));
+    [err, user] = await to(User.findOne({ email }));
     if (err) TE('Database is not responding. Try later.');
-    if(user) {
+    if (user) {
         TE('This email is already in use.');
     } else {
         const newUser = {
             name,
             email,
-            password
+            password,
+            height,
+            weight,
+            age
         };
 
         if (validator.isEmail(email)) {
@@ -31,14 +34,14 @@ const createUser = async function (userInfo) {
 
 const authUser = async function (userInfo) {
     //returns token
-    const {email, password} = userInfo;
+    const { email, password } = userInfo;
 
     if (!email) TE('InvalidEmail');
     if (!password) TE('InvalidPassword');
 
     let user;
     if (validator.isEmail(email)) {
-        [err, user] = await to(User.findOne({email}));
+        [err, user] = await to(User.findOne({ email }));
         if (err) TE(err.message);
     }
 
@@ -48,4 +51,4 @@ const authUser = async function (userInfo) {
     return user;
 };
 
-module.exports = {createUser, authUser};
+module.exports = { createUser, authUser };
