@@ -1,12 +1,11 @@
-const express = require('express');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
-const passport = require('passport');
-const pe = require('parse-error');
-const cors = require('cors');
-const path = require('path');
-const v1 = require('./routes/v1');
-const payment = require('./routes/payment');
+const express 		= require('express');
+const logger 	    = require('morgan');
+const bodyParser 	= require('body-parser');
+const passport      = require('passport');
+const pe            = require('parse-error');
+const cors          = require('cors');
+const path          = require('path');
+const v1            = require('./routes/v1');
 
 // const swaggerUi =require('swagger-ui-express') ;
 // const swaggerDocument = require('./swagger.json')
@@ -32,7 +31,6 @@ app.use(cors());
 app.use(express.static('doc'));
 
 app.use('/v1', v1);
-app.use('/', payment);
 
 app.use('/', (req, res) => {
   res.statusCode = 200;

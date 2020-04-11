@@ -21,9 +21,9 @@ if (CONFIG.db_host != '') {
 
     const mongo_location = 'mongodb://' + CONFIG.db_host + ':' + CONFIG.db_port + '/' + CONFIG.db_name;
     const opts = {
-        user: CONFIG.db_user,
-        pass: CONFIG.db_password,
-        useNewUrlParser: true
+        // user: CONFIG.db_user,
+        // pass: CONFIG.db_password,
+        // useNewUrlParser: true
     };
 
     mongoose.connect(mongo_location, opts).catch(err => {

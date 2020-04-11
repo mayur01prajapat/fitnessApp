@@ -15,7 +15,6 @@ const CONFIG = require('../config/config');
 const { Space, Hash, Memory, User, Notification, Subscription } = require('../models');
 const generateHash = require('../helpers/generateHash');
 const { transporter } = require('../helpers/transporter');
-const sendMessage = require('../helpers/sms');
 const checkSubscription = require('../helpers/checkSubscription');
 const { to, ReE, ReS } = require('../services/util.service');
 
