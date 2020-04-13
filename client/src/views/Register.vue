@@ -114,7 +114,8 @@ export default {
         email: "",
         password: ""
       },
-      submitted: false
+      submitted: false,
+      isLogin: localStorage.getItem("isLogin")
     };
   },
   validations: {
@@ -128,6 +129,11 @@ export default {
     apiUrl: {
       type: String,
       default: "http://localhost:3000/"
+    }
+  },
+  created() {
+    if (this.isLogin === "true") {
+      this.$router.push("/home");
     }
   },
   methods: {

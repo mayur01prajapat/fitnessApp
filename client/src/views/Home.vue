@@ -166,12 +166,10 @@ export default {
     }
   },
   created() {
-    console.log("created");
     axios
       .get(`${this.apiUrl}posts/all`)
       .then(res => {
         this.posts = res.data;
-        console.log(this.posts);
       })
       .catch(err => {
         console.log(err);

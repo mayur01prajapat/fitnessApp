@@ -60,7 +60,7 @@ export default {
   methods: {
     logout() {
       localStorage.clear();
-      this.$router.push("/home");
+      this.$router.push("/login");
     }
   },
   created() {

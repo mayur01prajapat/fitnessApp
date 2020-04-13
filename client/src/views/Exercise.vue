@@ -2,30 +2,33 @@
   <div>
     <Header />
     <div class="col-md-8 offset-2 mt-5">
-      <h3 class="ml-3">Calories Burned from Exercise</h3>
-
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="ml-3">Calories Burned from Exercise</h3>
+        </div>
+        <div class="col-md-6">
+          <h3 class="ml-3">Calories Burned from Exercise</h3>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-6">
           <div class="list-group mb-3" v-for="item in exerciseLogs" :key="item.id">
             <div class="list-group-item list-group-item-action active">{{item.exercise}}</div>
-            <div
-              class="list-group-item list-group-item-action"
-             
-            >
-             <!-- v-for="it in item.sets"
-              :key="it.set" -->
-            <div class="row">
-              <div class="marginAuto">{{item.weight}}</div>
-              <div class="marginAuto">{{item.reps+5}} reps</div>
-            </div>
-            <div class="row">
-              <div class="marginAuto">{{item.weight}}</div>
-              <div class="marginAuto">{{item.reps}} reps</div>
-            </div>
-            <div class="row">
-              <div class="marginAuto">{{item.weight}}</div>
-              <div class="marginAuto">{{item.reps-5}} reps</div>
-            </div>
+            <div class="list-group-item list-group-item-action">
+              <!-- v-for="it in item.sets"
+              :key="it.set"-->
+              <div class="row">
+                <div class="marginAuto">{{item.weight}}</div>
+                <div class="marginAuto">{{item.reps+5}} reps</div>
+              </div>
+              <div class="row">
+                <div class="marginAuto">{{item.weight}}</div>
+                <div class="marginAuto">{{item.reps}} reps</div>
+              </div>
+              <div class="row">
+                <div class="marginAuto">{{item.weight}}</div>
+                <div class="marginAuto">{{item.reps-5}} reps</div>
+              </div>
             </div>
             <!-- <div class="list-group-item list-group-item-action">
           <div class="row">
@@ -48,7 +51,6 @@
           </div>
         </div>
         <div class="col-md-6">
-          <h3 class="ml-3">Calories Burned from Exercise</h3>
           <div class="form-group">
             <select
               class="form-control"
@@ -80,6 +82,8 @@
                     id="exampleFormControlInput1"
                     placeholder="Duration in minutes"
                   />
+                </div>
+                <div class="form-group">
                   <input
                     type="text"
                     class="form-control"
@@ -87,6 +91,8 @@
                     id="exampleFormControlInput1"
                     placeholder="Reps"
                   />
+                </div>
+                <div class="form-group">
                   <input
                     type="text"
                     class="form-control"
@@ -170,27 +176,27 @@ export default {
           console.log(err);
         });
     },
-  submit() {
-    const exerciseLog = {
-      id: this.exerciseLogs.length + 1,
-      user: JSON.parse(localStorage.getItem("user")).id,
-      exercise: this.exerciseName,
-      reps: 5,
-      weight: this.weight,
-      calories_burned: this.calories,
-      description: "Enjoyed doing exercise firstng"
-    };
-    axios
-      .post(`${this.apiUrl}exerciseLogs/save`, {exersise:exerciseLog})
-      .then(res => {
-        this.exercises = res.data;
-        console.log(this.exercises);
-        this.fetchLogs();
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+    submit() {
+      const exerciseLog = {
+        id: this.exerciseLogs.length + 1,
+        user: JSON.parse(localStorage.getItem("user")).id,
+        exercise: this.exerciseName,
+        reps: 5,
+        weight: this.weight,
+        calories_burned: this.calories,
+        description: "Enjoyed doing exercise firstng"
+      };
+      axios
+        .post(`${this.apiUrl}exerciseLogs/save`, { exersise: exerciseLog })
+        .then(res => {
+          this.exercises = res.data;
+          console.log(this.exercises);
+          this.fetchLogs();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   },
   created() {
     axios

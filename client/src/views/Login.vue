@@ -101,13 +101,19 @@ export default {
         email: "",
         password: ""
       },
-      submitted: false
+      submitted: false,
+      isLogin: localStorage.getItem("isLogin")
     };
   },
   validations: {
     user: {
       email: { required, email },
       password: { required, minLength: minLength(3) }
+    }
+  },
+  created() {
+    if (this.isLogin === "true") {
+      this.$router.push("/home");
     }
   },
   methods: {
