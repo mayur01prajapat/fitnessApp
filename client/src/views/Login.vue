@@ -107,7 +107,7 @@ export default {
   validations: {
     user: {
       email: { required, email },
-      password: { required, minLength: minLength(6) }
+      password: { required, minLength: minLength(3) }
     }
   },
   methods: {
@@ -115,12 +115,13 @@ export default {
       this.submitted = true;
       this.$v.$touch();
       if (this.$v.$invalid) return;
-      // sending data to register api
+      // sending data to login api
       axios
-        .post(`${this.apiUrl}/user/login`, this.user)
+        .post(`${this.apiUrl}users/login`, this.user)
         .then(res => {
-          console.log(res);
-          if (res.data.status === "success") {
+          if (res.statusText === "OK") {
+            localStorage.setItem("user", JSON.stringify(res.data));
+            localStorage.setItem("isLogin", "true");
             this.$router.push("/home");
           } else {
             alert("login failed !");
