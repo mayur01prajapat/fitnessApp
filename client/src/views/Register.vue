@@ -9,20 +9,37 @@
           <div class="myform form">
             <div class="logo mb-3">
               <div class="col-md-12 text-center">
-                <h2>Login</h2>
+                <h2>Sign Up</h2>
               </div>
             </div>
-            <form name="login" @submit.prevent="login">
+            <form name="login" @submit.prevent="register">
+              <div class="form-group">
+                <label for="exampleInputEmail1">You Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  v-model="user.name"
+                  class="form-control"
+                  id="name"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your name"
+                  :class="{ 'is-invalid': submitted && $v.user.name.$error }"
+                />
+                <div
+                  class="invalid-feedback"
+                  v-if="submitted && !$v.user.name.required"
+                >First Name is required</div>
+              </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input
                   type="email"
                   name="email"
+                  v-model="user.email"
                   class="form-control"
                   id="email"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
-                  v-model="user.email"
                   :class="{ 'is-invalid': submitted && $v.user.email.$error }"
                 />
                 <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
@@ -35,11 +52,11 @@
                 <input
                   type="password"
                   name="password"
+                  v-model="user.password"
                   id="password"
                   class="form-control"
                   aria-describedby="emailHelp"
                   placeholder="Enter Password"
-                  v-model="user.password"
                   :class="{ 'is-invalid': submitted && $v.user.password.$error }"
                 />
                 <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
@@ -54,7 +71,7 @@
                 </p>
               </div>
               <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
               </div>
               <div class="col-md-12">
                 <div class="login-or">
@@ -71,8 +88,8 @@
               </div>
               <div class="form-group">
                 <p class="text-center">
-                  Don't have account?
-                  <a href="#" id="signup">Sign up here</a>
+                  have an account?
+                  <router-link to="/login">Login here</router-link>
                 </p>
               </div>
             </form>
@@ -88,16 +105,12 @@ import axios from "axios";
 import { required, email, minLength } from "vuelidate/lib/validators";
 
 export default {
-  name: "Login",
-  props: {
-    apiUrl: {
-      type: String,
-      default: "http://localhost:3000/"
-    }
-  },
+  name: "Register",
+  components: {},
   data() {
     return {
       user: {
+        name: "",
         email: "",
         password: ""
       },
@@ -106,24 +119,31 @@ export default {
   },
   validations: {
     user: {
+      name: { required },
       email: { required, email },
       password: { required, minLength: minLength(6) }
     }
   },
+  props: {
+    apiUrl: {
+      type: String,
+      default: "http://localhost:3000/"
+    }
+  },
   methods: {
-    login() {
+    register() {
       this.submitted = true;
       this.$v.$touch();
       if (this.$v.$invalid) return;
       // sending data to register api
       axios
-        .post(`${this.apiUrl}/user/login`, this.user)
+        .post(`${this.apiUrl}/user/register`, this.user)
         .then(res => {
-          console.log(res);
           if (res.data.status === "success") {
-            this.$router.push("/home");
+            alert("Registration successfully done !");
+            this.$router.push("/login");
           } else {
-            alert("login failed !");
+            alert("Registration failed !");
           }
         })
         .catch(err => console.log(err));
@@ -131,8 +151,6 @@ export default {
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
 body {

@@ -2,19 +2,22 @@ const exerciseLogs = [
   {
     id: 0,
     user: 0,
-    exercise: "exercise first",
+    exercise: "Flat Barbell Bench Press",
     sets: [
       {
         set: 1,
         reps: 15,
+        weight: "40 kg"
       },
       {
         set: 2,
         reps: 10,
+        weight: "35 kg"
       },
       {
         set: 3,
-        reps: 10,
+        reps: 8,
+        weight: "30 kg"
       },
     ],
     calories_burned: 50,

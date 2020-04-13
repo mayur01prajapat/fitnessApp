@@ -3,9 +3,9 @@ const dietLogs = [
     id: 0,
     user: 0,
     diet: "two Aaloo parathas",
-    quantity :{
-      count:2,
-      unit :grams
+    quantity: {
+      count: 2,
+      unit: "grams"
     },
     calories: 40,
     description: "Lot of fat eaten today",

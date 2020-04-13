@@ -2,15 +2,15 @@
   <div>
     <Header />
     <div class="container mt-3">
-      <div class="list-group mb-3" v-for="item in exerciseLogs" :key="item.id">
-        <div class="list-group-item list-group-item-action active">{{item.exercise}}</div>
-        <div class="list-group-item list-group-item-action" v-for="it in item.sets" :key="it.set">
+      <div class="list-group mb-3">
+        <div class="list-group-item list-group-item-action active">Flat Barbell Bench Press</div>
+        <div class="list-group-item list-group-item-action">
           <div class="row">
-            <div class="marginAuto">{{it.weight}}</div>
-            <div class="marginAuto">{{it.reps}} reps</div>
+            <div class="marginAuto">80.0 Kgs</div>
+            <div class="marginAuto">5 reps</div>
           </div>
         </div>
-        <!-- <div class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action">
           <div class="row">
             <div class="marginAuto">100.0 Kgs</div>
             <div class="marginAuto">5 reps</div>
@@ -27,10 +27,10 @@
             <div class="marginAuto">80.0 Kgs</div>
             <div class="marginAuto">5 reps</div>
           </div>
-        </div>-->
+        </div>
       </div>
 
-      <!-- <div class="list-group">
+      <div class="list-group">
         <div class="list-group-item list-group-item-action active">Close Grip Barbell Bench Press</div>
         <div class="list-group-item list-group-item-action">
           <div class="row">
@@ -56,41 +56,23 @@
             <div class="marginAuto">5 reps</div>
           </div>
         </div>
-      </div>-->
+      </div>  
+
     </div>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
-import axios from "axios";
+
 
 export default {
   name: "ExerciseLog",
   components: {
     Header
   },
-  data() {
-    return {
-      exerciseLogs: []
-    };
-  },
   props: {
-    apiUrl: {
-      type: String,
-      default: "http://localhost:3000/"
-    }
-  },
-  created() {
-    axios
-      .get(`${this.apiUrl}exerciseLogs/all`)
-      .then(res => {
-        this.exerciseLogs = res.data;
-        console.log(this.exerciseLogs);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    msg: String
   }
 };
 </script>

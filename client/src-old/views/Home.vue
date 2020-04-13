@@ -4,13 +4,10 @@
     <div class="container">
       <div class="col-md-12">
         <div class="row mt-3 mb-3">
-          <div class="card customCard" v-for="item in posts" :key="item.id">
-            <img v-if="item.type!='video'" :src="item.media" class="card-img-top" alt="Post images" />
-            <video v-else class="card-img-top" autoplay controls="false">
-              <source :src="item.media" type="video/mp4" />
-            </video>
+          <div class="card customCard" style>
+            <img src="../assets/images/food-h.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">{{item.title}}</h5>
+              <h5 class="card-title">10 Make-Ahead Breakfasts under 300 calories</h5>
               <p class="time">10 minutes ago</p>
               <div class="row">
                 <div class="col-md-6">
@@ -117,7 +114,7 @@
             </div>
           </div>
 
-          <!-- <div class="card customCard">
+          <div class="card customCard">
             <img src="../assets/images/running-1.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Essential Guide to Getting Moving</h5>
@@ -137,7 +134,7 @@
                 </div>
               </div>
             </div>
-          </div>-->
+          </div>
         </div>
       </div>
     </div>
@@ -146,35 +143,14 @@
 
 <script>
 import Header from "./Header.vue";
-import axios from "axios";
 
 export default {
   name: "Home",
   components: {
     Header
   },
-  data() {
-    return {
-      posts: []
-    };
-  },
   props: {
-    apiUrl: {
-      type: String,
-      default: "http://localhost:3000/"
-    }
-  },
-  created() {
-    console.log("created");
-    axios
-      .get(`${this.apiUrl}posts/all`)
-      .then(res => {
-        this.posts = res.data;
-        console.log(this.posts);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    msg: String
   }
 };
 </script>

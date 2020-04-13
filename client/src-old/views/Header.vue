@@ -35,9 +35,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/exercise">Exercise</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/exercise-log">Exercise-log</router-link>
-          </li>
         </ul>
       </div>
     </nav>

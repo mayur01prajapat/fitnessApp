@@ -6,39 +6,36 @@
 
       <div class="row">
         <div class="col-md-6">
-          <form class="form-inline" @submit.prevent="search">
+          <form class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
               <input
-                type="text"
+                type="password"
                 class="form-control"
                 id="inputPassword2"
                 placeholder="Search exercise by name"
-                v-model="exerciseName"
               />
             </div>
-            <button class="btn btn-primary mb-2">Search</button>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
           </form>
           <div class="form-group ml-3">
             <label for="result">Matching exercise :</label>
-            <textarea class="form-control" id="result" rows="5" v-model="similarExercise"></textarea>
+            <textarea class="form-control" id="result" rows="5"></textarea>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <select
-              class="form-control"
-              id="exampleFormControlSelect1"
-              v-model="excerciseId"
-              @change="onChange()"
-            >
-              <option value="45">..or choose an excercise below:</option>
-              <option v-for="item in exercises" :key="item.id" :value="item.id">{{item.name}}</option>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>..or choose an excercise below:</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
             </select>
           </div>
           <div class="card w-100">
             <div class="card-body">
               <h5 class="card-title text-center">How Many Calories Did I Burn</h5>
-              <form @submit.prevent="calculateCalories">
+              <form>
                 <div class="form-group">
                   <input
                     type="text"
@@ -61,10 +58,9 @@
                     placeholder="Duration in minutes"
                   />
                 </div>
-                <button class="btn btn-primary mb-2">Calculate</button>
               </form>
 
-              <h5 class="text-center">Calories Burned : {{calories}}</h5>
+              <h5 class="text-center">Calories Burned : 0</h5>
             </div>
           </div>
         </div>
@@ -75,62 +71,14 @@
 
 <script>
 import Header from "./Header.vue";
-import axios from "axios";
 
 export default {
   name: "Exercise",
   components: {
     Header
   },
-  data() {
-    return {
-      exercises: [],
-      excerciseId: 45,
-      exerciseName: "",
-      similarExercise: "",
-      calories: 0
-    };
-  },
   props: {
-    apiUrl: {
-      type: String,
-      default: "http://localhost:3000/"
-    }
-  },
-  methods: {
-    onChange() {
-      console.log(this.excerciseId);
-    },
-    search() {
-      let similar = [];
-      this.exercises.find(el => {
-        const match = el.name
-          .toLowerCase()
-          .includes(this.exerciseName.toLowerCase());
-        if (match) {
-          similar.push(el);
-        }
-      });
-      if (similar.length > 0) {
-        for (const it of similar) {
-          this.similarExercise += `${it.name}, `;
-        }
-      }
-    },
-    calculateCalories() {
-      this.calories = Math.floor(Math.random() * 100);
-    }
-  },
-  created() {
-    axios
-      .get(`${this.apiUrl}exercises/all`)
-      .then(res => {
-        this.exercises = res.data;
-        console.log(this.exercises);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    msg: String
   }
 };
 </script>

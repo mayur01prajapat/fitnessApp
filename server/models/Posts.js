@@ -1,13 +1,15 @@
 const posts = [
   {
-    title: 0,
-    time: "Oblique twist",
-    image: "https://vimeo.com/178079508",
+    id: 1,
+    title: "Oblique twist",
+    media: "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/7_most_effective_exercises_slideshow/650x350_7_most_effective_exercises_slideshow.jpg",
+    type: "image"
   },
   {
-    id: 1,
-    name: "Benchpress",
-    video: "https://vimeo.com/178057019",
+    id: 2,
+    title: "Benchpress",
+    media: "https://www.mensjournal.com/wp-content/uploads/mf/_main2_pushup_3.jpg?w=1200&h=675&crop=1",
+    type: "image"
   },
 ];
 
