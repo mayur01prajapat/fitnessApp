@@ -11,7 +11,7 @@ router
   .get("/:id", (req, res) =>
     res.send(exerciseLogs.getExerciseLogDetails(req.params.id))
   )
-  .get("/save", (req, res) =>
+  .post("/save", (req, res) =>
     res.send(exerciseLogs.addExerciseLogs(req.body.exersise))
   )
   .get("/delete", (req, res) =>

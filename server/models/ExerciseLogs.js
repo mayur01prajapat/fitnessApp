@@ -3,6 +3,8 @@ const exerciseLogs = [
     id: 0,
     user: 0,
     exercise: "Flat Barbell Bench Press",
+    weight:40,
+    reps:15,
     sets: [
       {
         set: 1,
@@ -23,6 +25,7 @@ const exerciseLogs = [
     calories_burned: 50,
     description: "Enjoyed doing exercise firstng",
   },
+
 ];
 const getExerciseLogs = () => {
   return exerciseLogs;

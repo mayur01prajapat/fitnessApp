@@ -10,13 +10,22 @@
             <div class="list-group-item list-group-item-action active">{{item.exercise}}</div>
             <div
               class="list-group-item list-group-item-action"
-              v-for="it in item.sets"
-              :key="it.set"
+             
             >
-              <div class="row">
-                <div class="marginAuto">{{it.weight}}</div>
-                <div class="marginAuto">{{it.reps}} reps</div>
-              </div>
+             <!-- v-for="it in item.sets"
+              :key="it.set" -->
+            <div class="row">
+              <div class="marginAuto">{{item.weight}}</div>
+              <div class="marginAuto">{{item.reps+5}} reps</div>
+            </div>
+            <div class="row">
+              <div class="marginAuto">{{item.weight}}</div>
+              <div class="marginAuto">{{item.reps}} reps</div>
+            </div>
+            <div class="row">
+              <div class="marginAuto">{{item.weight}}</div>
+              <div class="marginAuto">{{item.reps-5}} reps</div>
+            </div>
             </div>
             <!-- <div class="list-group-item list-group-item-action">
           <div class="row">
@@ -39,7 +48,7 @@
           </div>
         </div>
         <div class="col-md-6">
-           <h3 class="ml-3">Calories Burned from Exercise</h3>
+          <h3 class="ml-3">Calories Burned from Exercise</h3>
           <div class="form-group">
             <select
               class="form-control"
@@ -47,7 +56,7 @@
               v-model="excerciseId"
               @change="onChange()"
             >
-              <option value="45"> choose an excercise below:</option>
+              <option value="45">choose an excercise below:</option>
               <option v-for="item in exercises" :key="item.id" :value="item.id">{{item.name}}</option>
             </select>
           </div>
@@ -60,14 +69,9 @@
                     type="text"
                     class="form-control"
                     id="exampleFormControlInput1"
+                    v-model="weight"
                     placeholder="Your Weight"
                   />
-                </div>
-                <div class="form-group">
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>In Pounds</option>
-                    <option>In Kilogram</option>
-                  </select>
                 </div>
                 <div class="form-group">
                   <input
@@ -75,6 +79,20 @@
                     class="form-control"
                     id="exampleFormControlInput1"
                     placeholder="Duration in minutes"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="reps"
+                    id="exampleFormControlInput1"
+                    placeholder="Reps"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    v-model="description"
+                    placeholder="Description"
                   />
                 </div>
                 <button class="btn btn-primary mb-2">Calculate</button>
@@ -105,7 +123,10 @@ export default {
       excerciseId: 45,
       exerciseName: "",
       similarExercise: "",
-      calories: 0
+      calories: 0,
+      reps: 20,
+      weight: 55,
+      description: "This is descipriton"
     };
   },
   props: {
@@ -136,7 +157,40 @@ export default {
     },
     calculateCalories() {
       this.calories = Math.floor(Math.random() * 100);
-    }
+      this.submit();
+    },
+    fetchLogs() {
+      axios
+        .get(`${this.apiUrl}exerciseLogs/all`)
+        .then(res => {
+          this.exerciseLogs = res.data;
+          console.log(this.exerciseLogs);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+  submit() {
+    const exerciseLog = {
+      id: this.exerciseLogs.length + 1,
+      user: JSON.parse(localStorage.getItem("user")).id,
+      exercise: this.exerciseName,
+      reps: 5,
+      weight: this.weight,
+      calories_burned: this.calories,
+      description: "Enjoyed doing exercise firstng"
+    };
+    axios
+      .post(`${this.apiUrl}exerciseLogs/save`, {exersise:exerciseLog})
+      .then(res => {
+        this.exercises = res.data;
+        console.log(this.exercises);
+        this.fetchLogs();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   },
   created() {
     axios
@@ -148,26 +202,7 @@ export default {
       .catch(err => {
         console.log(err);
       });
-    axios
-      .get(`${this.apiUrl}exerciseLogs/all`)
-      .then(res => {
-        this.exerciseLogs = res.data;
-        console.log(this.exerciseLogs);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  },
-  submit() {
-    axios
-      .post(`${this.apiUrl}exercises/save`)
-      .then(res => {
-        this.exercises = res.data;
-        console.log(this.exercises);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.fetchLogs();
   }
 };
 </script>
