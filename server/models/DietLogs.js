@@ -2,11 +2,8 @@ const dietLogs = [
   {
     id: 0,
     user: 0,
-    diet: "two Aaloo parathas",
-    quantity: {
-      count: 2,
-      unit: "grams"
-    },
+    food: "two Aaloo parathas",
+    count: 2,
     calories: 40,
     description: "Lot of fat eaten today",
   },
@@ -22,7 +19,7 @@ const getExerciseLogDetails = (exercise) => {
   return null;
 };
 const addDietLogs = (exercise) => {
-  dietLogs.push(exercise);
+  dietLogs.push(exercise);  
   return true;
 };
 

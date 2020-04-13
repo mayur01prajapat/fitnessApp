@@ -35,10 +35,10 @@
             <router-link class="nav-link" to="/home">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/exercise">Exercise</router-link>
+            <router-link class="nav-link" to="/exercise-logs">Exercise</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/exercise-log">Exercise-log</router-link>
+            <router-link class="nav-link" to="/diet-logs">Diet</router-link>
           </li>
         </ul>
       </div>

@@ -11,7 +11,7 @@ router
   .get("/:id", (req, res) =>
     res.send(dietLogs.getDietLogDetails(req.params.id))
   )
-  .get("/save", (req, res) =>
+  .post("/save", (req, res) =>
     res.send(dietLogs.addDietLogs(req.body.diet))
   )
   .get("/delete", (req, res) =>
