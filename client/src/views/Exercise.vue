@@ -39,6 +39,7 @@
           </div>
         </div>
         <div class="col-md-6">
+           <h3 class="ml-3">Calories Burned from Exercise</h3>
           <div class="form-group">
             <select
               class="form-control"
@@ -46,7 +47,7 @@
               v-model="excerciseId"
               @change="onChange()"
             >
-              <option value="45">..or choose an excercise below:</option>
+              <option value="45"> choose an excercise below:</option>
               <option v-for="item in exercises" :key="item.id" :value="item.id">{{item.name}}</option>
             </select>
           </div>
