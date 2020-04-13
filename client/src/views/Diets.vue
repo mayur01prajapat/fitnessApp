@@ -2,7 +2,14 @@
   <div>
     <Header />
     <div class="col-md-8 offset-2 mt-5">
-      <h3 class="ml-3">Calories Taken From Diet</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="ml-3">Calories Taken From Diet</h3>
+        </div>
+        <div class="col-md-6">
+          <h3 class="ml-3">Diet Taken</h3>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-md-6">
@@ -17,7 +24,6 @@
           </div>
         </div>
         <div class="col-md-6">
-          <h3 class="ml-3">Calories Burned from Exercise</h3>
           <div class="form-group">
             <input
               type="text"
@@ -52,7 +58,7 @@
                 <button class="btn btn-primary mb-2">Calculate</button>
               </form>
 
-              <h5 class="text-center">Calories Burned : {{calories}}</h5>
+              <h5 class="text-center">Calories Undertaken : {{calories}}</h5>
             </div>
           </div>
         </div>
@@ -124,7 +130,7 @@ export default {
         id: this.dietLogs.length + 1,
         user: JSON.parse(localStorage.getItem("user")).id,
         count: this.count,
-        food:this.food,
+        food: this.food,
         calories: this.calories,
         description: this.description
       };
