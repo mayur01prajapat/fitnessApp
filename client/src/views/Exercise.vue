@@ -6,21 +6,36 @@
 
       <div class="row">
         <div class="col-md-6">
-          <form class="form-inline" @submit.prevent="search">
-            <div class="form-group mx-sm-3 mb-2">
-              <input
-                type="text"
-                class="form-control"
-                id="inputPassword2"
-                placeholder="Search exercise by name"
-                v-model="exerciseName"
-              />
+          <div class="list-group mb-3" v-for="item in exerciseLogs" :key="item.id">
+            <div class="list-group-item list-group-item-action active">{{item.exercise}}</div>
+            <div
+              class="list-group-item list-group-item-action"
+              v-for="it in item.sets"
+              :key="it.set"
+            >
+              <div class="row">
+                <div class="marginAuto">{{it.weight}}</div>
+                <div class="marginAuto">{{it.reps}} reps</div>
+              </div>
             </div>
-            <button class="btn btn-primary mb-2">Search</button>
-          </form>
-          <div class="form-group ml-3">
-            <label for="result">Matching exercise :</label>
-            <textarea class="form-control" id="result" rows="5" v-model="similarExercise"></textarea>
+            <!-- <div class="list-group-item list-group-item-action">
+          <div class="row">
+            <div class="marginAuto">100.0 Kgs</div>
+            <div class="marginAuto">5 reps</div>
+          </div>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <div class="row">
+            <div class="marginAuto">120.0 Kgs</div>
+            <div class="marginAuto">5 reps</div>
+          </div>
+        </div>
+        <div class="list-group-item list-group-item-action" disabled>
+          <div class="row">
+            <div class="marginAuto">80.0 Kgs</div>
+            <div class="marginAuto">5 reps</div>
+          </div>
+            </div>-->
           </div>
         </div>
         <div class="col-md-6">
@@ -85,6 +100,7 @@ export default {
   data() {
     return {
       exercises: [],
+      exerciseLogs: [],
       excerciseId: 45,
       exerciseName: "",
       similarExercise: "",
@@ -131,6 +147,26 @@ export default {
       .catch(err => {
         console.log(err);
       });
+    axios
+      .get(`${this.apiUrl}exerciseLogs/all`)
+      .then(res => {
+        this.exerciseLogs = res.data;
+        console.log(this.exerciseLogs);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  submit() {
+    axios
+      .post(`${this.apiUrl}exercises/save`)
+      .then(res => {
+        this.exercises = res.data;
+        console.log(this.exercises);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>
@@ -142,5 +178,12 @@ export default {
 
 .card.w-100 {
   margin-top: 2.5rem;
+}
+.list-group-item.list-group-item-action.active {
+  text-align: initial;
+}
+
+.marginAuto {
+  margin: 0 auto;
 }
 </style>

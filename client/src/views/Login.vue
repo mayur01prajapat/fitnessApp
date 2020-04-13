@@ -92,7 +92,7 @@ export default {
   props: {
     apiUrl: {
       type: String,
-      default: "http://localhost:3000/"
+      default: "http://localhost:3000"
     }
   },
   data() {
